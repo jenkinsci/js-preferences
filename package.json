@@ -1,0 +1,33 @@
+{
+  "name": "@jenkins-cd/preferences",
+  "version": "0.0.2",
+  "description": "Jenkins BlueOcean preference storage via localStorage",
+  "main": "preferences/index.js",
+  "scripts": {
+    "test": "jasmine spec/*.js",
+    "jsdoc": "jsdoc -d jsdoc preferences/*.js JSDOC.md",
+    "jsdoc-images": "jsdoc -d jsdoc preferences/*.js JSDOC.md && mkdir -p jsdoc/images && cp images/* jsdoc/images"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/scherler/js-preferences.git"
+  },
+  "keywords": [
+    "localStorage",
+    "config",
+    "preferences"
+  ],
+  "author": "Thorsten Scherler",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/scherler/js-preferences/issues"
+  },
+  "homepage": "https://github.com/scherler/js-preferences#readme",
+  "dependencies": {
+    "@jenkins-cd/storage": "0.0.6"
+  },
+  "devDependencies": {
+    "jasmine": "2.5.3",
+    "jsdoc": "3.4.3"
+  }
+}
