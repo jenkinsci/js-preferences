@@ -1,6 +1,6 @@
 {
   "name": "@jenkins-cd/preferences",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "Jenkins BlueOcean preference storage via localStorage",
   "main": "preferences/index.js",
   "scripts": {
