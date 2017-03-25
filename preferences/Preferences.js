@@ -35,7 +35,7 @@ function Preferences(preferencesArray) {
     this.store = {};
     // store the keys we know
     this.keys = preferencesArray.map((item) => {
-        this.store[item.key] = preference.newPreference(item.key, item.defaultValue);
+        this.store[item.key] = preference.newPreference(item.key, item.defaultValue, item.allowedValues);
         return item.key;
     });
 }
