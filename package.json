@@ -5,8 +5,7 @@
   "main": "preferences/index.js",
   "scripts": {
     "test": "jasmine spec/*.js",
-    "jsdoc": "jsdoc -d jsdoc preferences/*.js JSDOC.md",
-    "jsdoc-images": "jsdoc -d jsdoc preferences/*.js JSDOC.md && mkdir -p jsdoc/images && cp images/* jsdoc/images"
+    "jsdoc": "jsdoc -d jsdoc preferences/*.js JSDOC.md && mkdir -p jsdoc/images && cp images/* jsdoc/images"
   },
   "repository": {
     "type": "git",

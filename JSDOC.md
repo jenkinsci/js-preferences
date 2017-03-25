@@ -11,3 +11,8 @@ Configuring properties in the Storage Inspector of any of the Browsers is a simp
 of locating the key for the preference of interest (all log preference keys have a "`jenkins-instance/preferences:`" prefix) 
 and changing it's value to the desired value.
 
+## Google Chrome
+
+Use Google Chrome's Storage inspector. 
+
+![chrome-config](./images/chrome-config.png)
