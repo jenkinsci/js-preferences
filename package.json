@@ -4,7 +4,6 @@
   "description": "Jenkins BlueOcean preference storage via localStorage",
   "main": "dist/index.js",
   "files": [
-    "index.js",
     "dist/"
   ],
   "scripts": {
