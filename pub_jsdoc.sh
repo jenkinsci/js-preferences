@@ -2,10 +2,10 @@
 
 npm run jsdoc
 
-pushd jsdoc
+cd jsdoc
 
 git init
-git remote add jsdoc git@github.com:scherler/js-preferences.git
+git remote add jsdoc git@github.com:jenkinsci/js-preferences.git
 git fetch --depth=1 jsdoc gh-pages
 
 git add --all
@@ -16,4 +16,4 @@ git push jsdoc master:gh-pages
 
 rm -rf .git
 
-popd
+cd ..

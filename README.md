@@ -10,4 +10,4 @@ npm install --save @jenkins-cd/preferences
 
 ## API Documentation
 
-See [API Documentation](https://scherler.github.io/js-preferences/).
+See [API Documentation](https://jenkinsci.github.io/js-preferences/).
