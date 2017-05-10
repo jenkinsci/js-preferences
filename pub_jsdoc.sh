@@ -2,7 +2,7 @@
 
 npm run jsdoc
 
-cd jsdoc
+pushd jsdoc
 
 git init
 git remote add jsdoc git@github.com:jenkinsci/js-preferences.git
@@ -16,4 +16,4 @@ git push jsdoc master:gh-pages
 
 rm -rf .git
 
-cd ..
+popd ..
