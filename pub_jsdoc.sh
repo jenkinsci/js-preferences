@@ -16,4 +16,4 @@ git push jsdoc master:gh-pages
 
 rm -rf .git
 
-popd ..
+popd
