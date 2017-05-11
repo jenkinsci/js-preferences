@@ -17,14 +17,14 @@ const DEFAULT_NS_NAME = 'jenkins-preferences';
  */
 function Preference(key, defaultValue, allowedValues, namespace ) {
 
-    const preferences = storage.localNamespace(namespace || DEFAULT_NS_NAME);
+    this.preferences = storage.localNamespace(namespace || DEFAULT_NS_NAME);
     if (key === undefined) {
         throw new Error('Cannot create preference. Preference "key" name must be specified.');
     }
     this.key = key;
-    let value = preferences.get(key);
+    let value = this.preferences.get(key);
     if (!value && defaultValue) {
-        preferences.set(key, defaultValue);
+        this.preferences.set(key, defaultValue);
         value = defaultValue;
     }
     this.value = value;
@@ -37,7 +37,7 @@ Preference.prototype = {
      * @param newValue
      */
     set newValue(newValue) {
-        preferences.set(this.key, newValue);
+        this.preferences.set(this.key, newValue);
         this.value = newValue;
     },
     /**
