@@ -13,7 +13,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/scherler/js-preferences.git"
+    "url": "git+https://github.com/jenkinsci/js-preferences.git"
   },
   "keywords": [
     "localStorage",
