@@ -1,6 +1,5 @@
 // See https://github.com/jenkinsci/js-storage
-const storage = require('@jenkins-cd/storage/storage');
-const StorageNamespace = require('@jenkins-cd/storage/StorageNamespace');
+const storage = require('@jenkins-cd/storage');
 
 const DEFAULT_NS_NAME = 'jenkins-preferences';
 
@@ -17,7 +16,8 @@ const DEFAULT_NS_NAME = 'jenkins-preferences';
  * preference.newPreference('key', ['defaultValue', 'allowedValues', 'namespace']);
  */
 function Preference(key, defaultValue, allowedValues, namespace ) {
-    const preferences = new StorageNamespace(namespace || DEFAULT_NS_NAME, storage.local);
+
+    const preferences = storage.localNamespace(namespace || DEFAULT_NS_NAME);
     if (key === undefined) {
         throw new Error('Cannot create preference. Preference "key" name must be specified.');
     }
