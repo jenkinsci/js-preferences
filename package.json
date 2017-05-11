@@ -33,6 +33,7 @@
     "babel-cli": "6.24.1",
     "babel-preset-es2015": "6.24.1",
     "jasmine": "2.5.3",
-    "jsdoc": "3.4.3"
+    "jsdoc": "3.4.3",
+    "jsdom": "10.1.0"
   }
 }
