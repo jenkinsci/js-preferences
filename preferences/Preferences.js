@@ -2,7 +2,8 @@ const preference = require('./Preference');
 /**
  * Creates a configuration object based on preferences.
  * This means we use localStorage to interact with the components.
- * @param preferencesArray {array} the preferences that we want to sync with the local storage
+ * @param preferencesArray {Array} the preferences that we want to sync with the local storage
+ * @param {string} [namespace] - if no value we use default namespace
  * @constructor
  * @example
  * const preferencesArray = [{
@@ -28,14 +29,14 @@ const preference = require('./Preference');
  * ];
  * const karaokeConfig = preferences.newPreferences(preferencesArray);
  */
-function Preferences(preferencesArray) {
+function Preferences(preferencesArray, namespace) {
     if (!preferencesArray) {
         throw new Error('Cannot create config. Must pass an array of properties!');
     }
     this.store = {};
     // store the keys we know
     this.keys = preferencesArray.map((item) => {
-        this.store[item.key] = preference.newPreference(item.key, item.defaultValue, item.allowedValues);
+        this.store[item.key] = preference.newPreference(item.key, item.defaultValue, item.allowedValues, namespace);
         return item.key;
     });
 }
@@ -50,7 +51,7 @@ Preferences.prototype = {
     },
     /**
      * Returns all registered keys
-     * @returns {array}
+     * @returns {Array}
      */
     getKeys() {
         return this.keys;
@@ -59,8 +60,9 @@ Preferences.prototype = {
 /**
  * Create a Preference and return this config
  * @param preferencesArray the preferences that we want to sync with the local storage
+ * @param {string} [namespace] - if no value we use default namespace
  * @returns {Preferences}
  */
-exports.newPreferences = function (preferencesArray) {
-    return new Preferences(preferencesArray);
+exports.newPreferences = function (preferencesArray, namespace) {
+    return new Preferences(preferencesArray, namespace);
 };

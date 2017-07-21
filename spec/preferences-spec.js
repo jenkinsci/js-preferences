@@ -58,3 +58,42 @@ describe("Preferences smoke testing", function () {
         expect(prop.getAllowedValues()).toEqual(['default', 'never']);
     });
 });
+
+describe("Preferences should be found in the localStorage direct access", function () {
+    const preferences = require('../preferences/Preferences');
+    const karaokeConfig = preferences.newPreferences(preferencesArray);
+    const localStorage = window.localStorage;
+    const PREFIX = 'jenkins-preferences:';
+    let key = 'xxx4u';
+    it("returns undefined", function () {
+        const prop = karaokeConfig.getPreference(key);
+        expect(prop).toBe(undefined);
+        // validate windows
+        expect(prop).toBe(localStorage.getItem(PREFIX + key));
+    });
+    it("returns defaultValue", function () {
+        key = 'runDetails.logView';
+        const prop = karaokeConfig.getPreference(key);
+        expect(prop.value).toBe('pipeline');
+        // validate windows
+        expect(prop.value).toBe(window.localStorage.getItem(PREFIX + key));
+    });
+    it("returns defaultValue and allowedValues", function () {
+        key = 'runDetails.pipeline.showPending';
+        const prop = karaokeConfig.getPreference(key);
+        expect(prop.value).toBe('default');
+        // validate windows
+        expect(prop.value).toBe(window.localStorage.getItem(PREFIX + key));
+        expect(prop.getAllowedValues()).toEqual(['default', 'never']);
+    });
+    it("test that we can add to different namespace and do not delete old one", function () {
+        const preference = require('../preferences/Preference');
+        const newNs = 'xxx';
+        key = 'runDetails.pipeline.showPending';
+        preference.newPreference(key, 'never', undefined, newNs);
+        const prop = karaokeConfig.getPreference(key);
+        expect(prop.value).toBe('default');
+        // validate windows
+        expect('never').toBe(window.localStorage.getItem(newNs + ':' + key));
+    });
+});
